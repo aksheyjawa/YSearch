@@ -5,6 +5,7 @@ var app = require("../app.js");
 var mongoURL = "" ;
 //if ( app.get('env') === 'development' ) {
   mongoURL = 'mongodb://localhost:27017/indexes';
+  mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
 //}
 //else if ( app.get('env') === 'production' ) {
 //  mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
