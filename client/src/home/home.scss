@@ -1,0 +1,56 @@
+body {
+  background: rgb(249, 249, 249);
+}
+
+#root {
+  margin: 0 auto;
+  width: 768px;
+  background-color: white;
+  padding: 20px;
+
+  min-height: 600px;
+  overflow: hidden;
+}
+
+
+.homepage h1 {
+  margin-top: 10px;
+}
+
+.homepage .btn_default {
+}
+
+/* Search box */
+
+.search_box {
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  width: 200px;
+  font-size: 16px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.20);
+  height: 40px;
+  padding: 0 10px;
+}
+
+
+/* Buttons */
+.btn_default {
+  background-color: #ccc;
+  border-radius: 2px;
+  color: black;
+  padding: 10px;
+  margin: 2px;
+  box-shadow: 0 1px 5px 0 rgba(0,0,0,0.20);
+  border: none;
+  font-size: 14px;
+  font-family: Roboto, 'Helvetica Neue', arial, sans-serif;
+}
+
+.btn_default .icon {
+  margin-right: 5px;
+}
+
+.btn_primary {
+  color: white;
+  background-color: #2A70E1;
+}

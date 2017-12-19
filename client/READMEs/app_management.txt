@@ -1,0 +1,40 @@
+Use these commands
+==================
+
+npm run watch-css      -> For watching and building scss
+npm run start          -> To start the server
+
+start mongo
+PORT=3002 node bin/www      -> start express server (in express directory)
+								// Should be nodemon
+
+Running both servers together
+-----------------------------
+Run servers for backend and frontend separately
+
+https://daveceddia.com/create-react-app-express-backend/
+
+
+
+Yarn (not being used)
+=====================
+
+
+yarn start
+  Starts the development server.
+
+yarn build
+  Bundles the app into static files for production.
+
+yarn test
+  Starts the test runner.
+
+yarn eject
+  Removes this tool and copies build dependencies, configuration files
+  and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+  cd ysearchapp
+  yarn start
+
+Happy hacking!
