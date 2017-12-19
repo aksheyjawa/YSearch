@@ -7,11 +7,16 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
+var path = require('path');
 
 var app = express();
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
