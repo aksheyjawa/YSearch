@@ -8,11 +8,6 @@ router.get('/search', returnJSON);
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-
-console.log("********__dirname: " + __dirname);
-console.log(path.join(__dirname, '../client/build/index.html'));
-
-
 router.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });

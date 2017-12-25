@@ -1,17 +1,23 @@
+/*
 var app = require("../app.js");
 
-/****** Database ******/
-//console.log("app.get('env'): " + app.get('env'));
-var mongoURL = "" ;
-//if ( app.get('env') === 'development' ) {
+console.log("app.get('env'): " + app.get('env'));
+var mongoURL = "", db_name = "";
+if ( app.get('env') === 'development' ) {
   mongoURL = 'mongodb://localhost:27017/indexes';
+  db_name = 'indexes';
+}
+else if ( app.get('env') === 'production' ) {
   mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
-//}
-//else if ( app.get('env') === 'production' ) {
-//  mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
-//}
-//var db_name = 'indexes';
-var db_name = 'yl-mongo';
-var collection_name = 'lessons_yss';
+  db_name = 'yl-mongo';
+}
+*/
 
-module.exports = {mongoURL, db_name, collection_name};
+let mongoURL = "", db_name = "";
+mongoURL = 'mongodb://localhost:27017/indexes';
+db_name = 'indexes';
+
+mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
+db_name = 'yl-mongo';
+
+module.exports = {mongoURL, db_name};

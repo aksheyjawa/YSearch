@@ -1,9 +1,11 @@
-@import "node_modules/material-components-web/dist/material-components-web";
+//@import "node_modules/material-components-web/dist/material-components-web";
 
-.main {
+.highlight {
+  background-color: rgba(255, 255, 181, 0.78);
+  display: inline-block;
 }
 
-.result {
-	margin: 20px 0;
-	padding: 15px;
+.list_heading {
+  font-size: 18px;
+  margin: 3px 0 7px;
 }

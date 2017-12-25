@@ -17,6 +17,7 @@
     "jade": "~1.11.0",
     "mongo": "^0.1.0",
     "morgan": "~1.9.0",
+    "react-bootstrap": "^0.31.5",
     "rmwc": "0.0.1-rc11",
     "serve-favicon": "~2.4.5"
   }

@@ -5,7 +5,7 @@ import Home from './home';
 import Results from './results';
 import { Route, Switch } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
-
+import { Grid, Row, Col } from 'react-bootstrap';
 
 class App extends Component {
 /*
@@ -29,9 +29,15 @@ class App extends Component {
 */
       <BrowserRouter>
         <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route path='/results' component={Results}/>
-          <Route path='/node_module' />
+          <Grid>
+            <Row className="show-grid">
+              <Col xs={12} md={12}>
+                <Route exact path='/' component={Home}/>
+                <Route path='/results' component={Results}/>
+                <Route path='/node_module' />
+              </Col>
+            </Row>
+          </Grid>
         </Switch>
       </BrowserRouter>
       
