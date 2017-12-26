@@ -39,29 +39,53 @@ function getData(database, req, res) {
     });
 */
 
+/*
+Project: It is used to decide what elements to send to the next stage
+Filter: Selects a subset of an array to return based on the specified condition. Returns an array with only those elements that match the condition.
+
+Questions:
+Where can each of the operators can be used. Ex: $in, $elemmatch, etc.
+How does unwind work?
+How to create index?
+*/
   indexesDB.collection("all")
     //.find({"tag": {$regex: `${req.query.q}`, $options: 'i'}}) 
     .aggregate([
         {
-          $match: { $or: [ { "title": regex }, { "contents.title": regex },{ "index.tag": regex } ] }
+          $match: { 
+              $or: [ 
+                      { "title": regex }, //jsr and yss_lessons
+                      { "contents.title": regex }, //jsr
+                      { "index.finishedTag": regex } //yss_lessons
+                      //{ "tags": regex } //yss_lessons
+                      //{tags: { $elemMatch: { $elemMatch: [ regex ] } } }
+                    ] 
+            }
         },
-        { $group : { 
+        { 
+          $group : { 
                       _id : "$doc", 
-                      matches: { 
+                      "matches": { 
                               $push: {
                                       title: "$title",
                                       lessonNum: "$num",
-                                      pageNum: "1",
+                                      pageNum: "$pageNum",
                                       contents: "$contents",
-                                      index: { tag: "$index.finishedTag", page: "$index.pageNum"}
+                                      //index: { tag: "$index.finishedTag", pageNum: "$index.pageNum"},
+                                      tags: "$tags",
                                     }
                             } 
                     } 
+        },
+        { $project: 
+          { 
+            _id: 1,   //show _id
+            matches: { 
+              $slice: [ "$matches", 5 ]  //limit matches array
+            } 
+          } 
         }
-        /*{ $project: {
-                  "$_id": "$all"
-                }
-        }*/
+        //{ "$limit": 1 }
     ])
     .toArray( function (err, result) {
       if (err) throw err;
@@ -71,7 +95,7 @@ function getData(database, req, res) {
 
 }
 
-
+//TODO Return only that data that is needed
 
 /*
   indexesDB.collection("all")
