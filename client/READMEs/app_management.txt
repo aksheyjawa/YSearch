@@ -25,6 +25,19 @@ Run servers for backend and frontend separately
 
 https://daveceddia.com/create-react-app-express-backend/
 
+mongolab
+========
+
+username: aksheyjawa
+password: canbetold123
+^^For mlab login and database login
+
+
+To connect using the mongo shell:
+mongo ds259175.mlab.com:59175/ysearch -u <dbuser> -p <dbpassword>
+
+To connect using a driver via the standard MongoDB URI:
+mongodb://<dbuser>:<dbpassword>@ds259175.mlab.com:59175/ysearch
 
 
 Yarn (not being used)
