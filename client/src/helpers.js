@@ -82,7 +82,7 @@ export default class Helpers {
      return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
   };
 
-  static highlightTerm(text, term) {
+  static highlightTerm(text, term, returnMatchesOnly) {
     let regex = new RegExp(term, "i");
     let parts = text.split(regex);
     let renderString = [];
@@ -93,7 +93,10 @@ export default class Helpers {
       }
       renderString.push( parts[i] );
     }
-    return renderString;
+    if(returnMatchesOnly && parts.length <= 1) //if the term was not found
+	    return null;
+	else
+		return renderString;
   }
 
 }

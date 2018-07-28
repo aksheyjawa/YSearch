@@ -1,0 +1,15 @@
+//Chapter numbers and sections in JSR
+Deploy on Heroku
+
+
+Both start and end page numbers in JSR
+deploy to aws
+Rank the documents instead of string matching only
+Return in json only the required data
+
+
+Extension ideas:
+Proposal filler:
+allows you to save many sample proposals and fill the selected one.
+have an extension that searched from the saved search and shows notification like the existing extension.
+Create a Google search extension which allows searching by using advanced searching tricks

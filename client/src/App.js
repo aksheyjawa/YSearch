@@ -27,20 +27,31 @@ class App extends Component {
         )}
       </div>
 */
-      <BrowserRouter>
-        <Switch>
-          <Grid>
-            <Row className="show-grid">
-              <Col xs={12} md={12}>
+
+      <Grid>
+        <Row className="show-grid">
+          <Col xs={12} md={12}>
+            <BrowserRouter>
+              <Switch>
                 <Route exact path='/' component={Home}/>
                 <Route path='/results' component={Results}/>
+                <Route path='/results/:id' component={Results}/>
                 <Route path='/node_module' />
-              </Col>
-            </Row>
-          </Grid>
+              </Switch>
+            </BrowserRouter>
+          </Col>
+        </Row>
+      </Grid>
+
+/*
+      <BrowserRouter>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/results/:id' component={Results}/>
+          <Route path='/node_module' />
         </Switch>
       </BrowserRouter>
-      
+*/
     );
   }
 }

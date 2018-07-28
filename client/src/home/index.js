@@ -1,36 +1,33 @@
 import React, { Component } from 'react';
-//import './home.css';
+import './home.css';
+import { Link } from 'react-router-dom';
+import SearchBox from '../SearchBox';
 
 export default class Home extends Component {
 
   constructor(props) {
     super(props);
     this.state = { input: '' };
-  }
-
-  handleChange(e) {
-    this.setState({ input: e.target.value });
-  }
-
-  handleClick() {
-    console.log(this.state.input);
-    window.location.href = `/results?q=${this.state.input}`;
+    console.log("Inside Home constructor");
   }
 
   render() {
     return (
-      <div className="homepage">
-        <input 
-          className="search_box" 
-          type="text" 
-          placeholder="Type name of a Topic" 
-          onChange={ this.handleChange.bind(this) } />
-        <input 
-          type="submit" 
-          className="btn_default"
-          onClick={ this.handleClick.bind(this) } 
-        />
+      <div className="homepage main">
+        <div className="heading">YSearch</div>
+        <div className="sub_heading">Search within teachings of Yogananda</div>
 
+        <SearchBox></SearchBox>
+
+        <div className="search_terms_label">Try these popular searches:</div>
+        <div className="search_term_container"> 
+          <a className="search_term" href="/results?q=Love">Love</a> 
+          <a className="search_term" href="/results?q=Devotion">Devotion</a>
+          <a className="search_term" href="/results?q=Kriya">Kriya</a>
+          <a className="search_term" href="/results?q=Breathing">Breathing</a>
+          <a className="search_term" href="/results?q=God">God</a>
+          <a className="search_term" href="/results?q=Marriage">Marriage</a>
+        </div>
       </div>
     );
   }

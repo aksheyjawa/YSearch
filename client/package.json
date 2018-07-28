@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "node-sass-chokidar": "0.0.3",
+    "postcss-discard-duplicates": "^4.0.0",
     "query-string": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",

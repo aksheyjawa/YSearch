@@ -56,7 +56,7 @@ How to create index?
               $or: [ 
                       { "title": regex }, //jsr and yss_lessons
                       { "contents.title": regex }, //jsr
-                      { "index.finishedTag": regex } //yss_lessons
+                      { "index.tags": regex } //yss_lessons
                       //{ "tags": regex } //yss_lessons
                       //{tags: { $elemMatch: { $elemMatch: [ regex ] } } }
                     ] 
@@ -70,7 +70,9 @@ How to create index?
                                       title: "$title",
                                       lessonNum: "$num",
                                       pageNum: "$pageNum",
+                                      chapterNum: "$chapterNum",
                                       contents: "$contents",
+                                      index: "$index",
                                       //index: { tag: "$index.finishedTag", pageNum: "$index.pageNum"},
                                       tags: "$tags",
                                     }
@@ -81,7 +83,7 @@ How to create index?
           { 
             _id: 1,   //show _id
             matches: { 
-              $slice: [ "$matches", 5 ]  //limit matches array
+              $slice: [ "$matches", 20 ]  //limit matches array
             } 
           } 
         }

@@ -1,11 +1,85 @@
 //@import "node_modules/material-components-web/dist/material-components-web";
 
 .highlight {
-  background-color: rgba(255, 255, 181, 0.78);
+  background-color: rgba(156, 156, 156, 0.78);
   display: inline-block;
 }
 
+.list-group {
+	clear: both;
+}
+
+.list-group-item {
+    position: relative;
+    display: block;
+    margin-bottom: 14px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid;
+    padding: 0;
+}
+
 .list_heading {
-  font-size: 18px;
-  margin: 3px 0 7px;
+    font-size: 18px;
+    background-color: rgba(86, 86, 86, 0.36);
+    padding: 10px 20px;
+}
+
+.list-group-item > div:nth-child(odd) {
+    background-color: rgba(204, 204, 204, 0.26);
+}
+
+.list-group-item > div {
+    padding: 10px 20px;
+}
+
+
+/* Publication */
+
+.pub_section {
+    margin-top: 40px;
+    border-radius: 0.25rem;
+    padding: 30px 20px;
+    background-color: rgba(204, 204, 204, 0.13);
+    margin-left: -15px;
+    width: calc( 100% + 30px );
+}
+
+.pub_details {
+	text-align: center;
+}
+
+.pub_title_pic {
+	width: 80%;
+    border: 3px solid rgb(88, 40, 11);
+    border-radius: 0.25rem;
+}
+
+.pub_section.is-lesson {
+	width: 80%;
+}
+
+.pub_title {
+    padding-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pub_section .list-group-item:first-child {
+	margin-top: 10px;
+}
+
+.pub_binding {
+
+}
+
+.search_term {
+
+}
+
+@media (min-width: 600px) {
+
+	.pub_title_pic {
+		width: 30%;
+	}
+
 }

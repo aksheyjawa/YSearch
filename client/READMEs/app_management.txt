@@ -1,10 +1,21 @@
 Use these commands
 ==================
 
+start mongo
+
+In client directory
+-------------------
+client directory contains react code. It runs on 3000
+
 npm run watch-css      -> For watching and building scss
 npm run start          -> To start the server
 
-start mongo
+
+In express directory (src_searchApp)
+--------------------
+Express server simply returns json. It runs on 3002 and uses built react code.
+Example: http://localhost:3002/search?q=God
+
 PORT=3002 node bin/www      -> start express server (in express directory)
 								// Should be nodemon
 

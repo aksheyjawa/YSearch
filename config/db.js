@@ -17,7 +17,7 @@ let mongoURL = "", db_name = "";
 mongoURL = 'mongodb://localhost:27017/indexes';
 db_name = 'indexes';
 
-mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
-db_name = 'yl-mongo';
+//mongoURL = 'mongodb://aksheyjawa:qwerty123#@ds141185.mlab.com:41185/yl-mongo';
+//db_name = 'yl-mongo';
 
 module.exports = {mongoURL, db_name};
