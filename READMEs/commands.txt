@@ -39,6 +39,10 @@ mongo ds259175.mlab.com:59175/ysearch -u <dbuser> -p <dbpassword>
 To connect using a driver via the standard MongoDB URI:
 mongodb://<dbuser>:<dbpassword>@ds259175.mlab.com:59175/ysearch
 
+mongoimport --jsonArray --db indexes --collection all --file lesson_collatedv3_WIP.json
+
+mongoimport -h ds259175.mlab.com:59175 -u aksheyjawa -p canbetold123  --jsonArray --db ysearch --collection all --file lesson_collatedv3_WIP.json
+
 
 Yarn (not being used)
 =====================
