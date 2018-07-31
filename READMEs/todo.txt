@@ -1,0 +1,14 @@
+Top:
+====
+Implement ranking
+Cleanup the index of lessons
+MEQ, DR
+Home button
+
+Later:
+======
+Show Load more feature
+Rank the documents instead of string matching only
+Return in json only the required data
+
+AI support: Synonym search, Ranking, etc

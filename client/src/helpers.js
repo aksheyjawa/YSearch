@@ -83,20 +83,28 @@ export default class Helpers {
   };
 
   static highlightTerm(text, term, returnMatchesOnly) {
-    let regex = new RegExp(term, "i");
+    let regex = new RegExp("("+term+")", "i");
     let parts = text.split(regex);
+    //let parts = text.split(/(kriya)/i);
     let renderString = [];
 
     for(let i=0 ; i<parts.length ; i++) {
-      if(i > 0) {
-        renderString.push( <span className="highlight"> {term} </span> );
+
+      if(i%3 === 1) {
+        renderString.push( <span className="highlight"> {parts[i]} </span> );
+        continue;
       }
+
       renderString.push( parts[i] );
     }
     if(returnMatchesOnly && parts.length <= 1) //if the term was not found
 	    return null;
 	else
 		return renderString;
+  }
+
+  static highlightTerm1(text, term, returnMatchesOnly) {
+    return text.replace(term, "<span className='highlight'>" + term + "</span>");
   }
 
 }

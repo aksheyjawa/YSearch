@@ -13,17 +13,16 @@ export default class Results extends Component {
   constructor({match}) {
     super();
     this.state = {results: []};
+    this.resultsCount = -1;
   }
 
   componentDidMount() {
-
-
-
     console.log("Inside Results componentDidMount");
     fetch(`/search?q=${this.query}`)
       .then(res => res.json())
       .then(results => {
-        console.log(results);
+        //console.log(results);
+        this.resultsCount = results.length;
         let sectionedResults= this.restructureResults(results);
         this.setState({ results: sectionedResults });
       });
@@ -36,7 +35,7 @@ export default class Results extends Component {
       console.log(section._id);
       sectionedResults[section._id] = section.matches;
     });
-    console.log(sectionedResults);
+    //console.log(sectionedResults);
     return sectionedResults;
   }
 
@@ -46,13 +45,38 @@ export default class Results extends Component {
     const q = params.get('q');
     this.query = q;
 
+    console.log(this.state.results);
+
     return (
 
       <div className="main">
         <SearchBox></SearchBox>
-        <LessonResult data={this.state.results} query={this.query}/>
 
-        <BookResult data={this.state.results.jsr} query={this.query} title={`${Helpers.codeBookMapping['jsr']}`}/>
+        { this.resultsCount === 0 &&
+          <div className="no_results">No results</div>
+        }
+
+        { this.resultsCount > 0 &&
+          <div>
+            <LessonResult data={this.state.results} query={this.query}/>
+            <BookResult 
+              data={this.state.results.jsr} 
+              query={this.query}
+              title={`${Helpers.codeBookMapping['jsr']}`}
+              img="/images/JSR.jpg"
+              ed="3rd Ed., Paperback"
+            />
+
+            <BookResult 
+              data={this.state.results.dr} 
+              query={this.query} 
+              title={`${Helpers.codeBookMapping['dr']}`}
+              img="/images/DR.jpg"
+              ed="3rd Ed., Paperback"
+            />
+          </div>
+        }
+
         
       </div>
     );

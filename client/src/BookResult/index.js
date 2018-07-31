@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './bookResult.css';
 import Helpers from '../helpers.js';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
-//const root = "http://localhost:3002";
-const root = "";
+const root = "http://localhost:3002";
+//const root = "";
 
 //var searchQuery = Helpers.getParams().q;
 
@@ -19,8 +19,8 @@ export default class BookResult extends Component {
     return (
       <section className="pub_section">
         <div className="pub_details">
-          <img className="pub_title_pic" src={root + "/images/JSR.jpg"} />
-          <div className="pub_edition">3rd Ed., Paperback</div>
+          <img className="pub_title_pic" src={root + this.props.img} />
+          <div className="pub_edition">{this.props.ed}</div>
         </div>
         <ListGroup>
         { Helpers.isNotEmpty(this.props.data) 

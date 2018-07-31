@@ -52,6 +52,10 @@
 .pub_section .list-group-item:first-child {
   margin-top: 10px; }
 
+.no_results {
+  padding-top: 80px;
+  text-align: center; }
+
 @media (min-width: 600px) {
   .pub_title_pic {
     width: 30%; } }
