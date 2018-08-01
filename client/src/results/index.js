@@ -5,6 +5,7 @@ import BookResult from '../BookResult';
 import LessonResult from '../LessonResult';
 import SearchBox from '../SearchBox';
 
+import JSONdb from '../JSONdb.js';
 //var this.query = this.props.match.params.id;
 //Helpers.getParams().q;
 
@@ -18,14 +19,7 @@ export default class Results extends Component {
 
   componentDidMount() {
     console.log("Inside Results componentDidMount");
-    fetch(`/search?q=${this.query}`)
-      .then(res => res.json())
-      .then(results => {
-        //console.log(results);
-        this.resultsCount = results.length;
-        let sectionedResults= this.restructureResults(results);
-        this.setState({ results: sectionedResults });
-      });
+    //console.log();
   }
 
   restructureResults(allResults) {
@@ -46,7 +40,7 @@ export default class Results extends Component {
     this.query = q;
 
     console.log(this.state.results);
-
+    //<LessonResult data={this.state.results} query={this.query}/>;
     return (
 
       <div className="main">
@@ -55,27 +49,34 @@ export default class Results extends Component {
         { this.resultsCount === 0 &&
           <div className="no_results">No results</div>
         }
+        
 
-        { this.resultsCount > 0 &&
-          <div>
-            <LessonResult data={this.state.results} query={this.query}/>
-            <BookResult 
-              data={this.state.results.jsr} 
-              query={this.query}
-              title={`${Helpers.codeBookMapping['jsr']}`}
-              img="/images/JSR.jpg"
-              ed="3rd Ed., Paperback"
-            />
+        <LessonResult 
+          data={JSONdb.search('lessons', q, 10)} 
+          query={this.query}
+          title={`${Helpers.codeBookMapping['yss_lessons']}`}
+          img="/images/DR.jpg"
+        />
 
-            <BookResult 
-              data={this.state.results.dr} 
-              query={this.query} 
-              title={`${Helpers.codeBookMapping['dr']}`}
-              img="/images/DR.jpg"
-              ed="3rd Ed., Paperback"
-            />
-          </div>
-        }
+        <div>
+          <BookResult 
+            data={JSONdb.search('dr', q, 10)} 
+            query={this.query}
+            title={`${Helpers.codeBookMapping['dr']}`}
+            img="/images/DR.jpg"
+            ed="3rd Ed., Paperback"
+          />
+        </div>
+
+        <div>
+          <BookResult 
+            data={JSONdb.search('jsr', q, 10)} 
+            query={this.query}
+            title={`${Helpers.codeBookMapping['jsr']}`}
+            img="/images/JSR.jpg"
+            ed="3rd Ed., Paperback"
+          />
+        </div>
 
         
       </div>
