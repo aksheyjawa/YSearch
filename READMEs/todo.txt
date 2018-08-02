@@ -1,13 +1,16 @@
 Top:
 ====
-Implement ranking
+Deply on netlify/Github pages
+Remove contents from lessons json
 Cleanup the index of lessons
 MEQ, DR
 Home button
 
+
 Later:
 ======
 Show Load more feature
+Make it a PWA
 Rank the documents instead of string matching only
 Return in json only the required data
 

@@ -1,24 +1,29 @@
 {
-  "name": "express-backend",
-  "version": "0.0.0",
+  "name": "ysearchapp",
+  "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "devstart": "nodemon ./bin/www",
-    "start": "node ./bin/www",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
-  },
   "dependencies": {
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "express-graphql": "^0.6.11",
-    "graphql": "^0.11.7",
-    "jade": "~1.11.0",
-    "mongo": "^0.1.0",
-    "morgan": "~1.9.0",
-    "react-bootstrap": "^0.31.5",
-    "rmwc": "0.0.1-rc11",
-    "serve-favicon": "~2.4.5"
+    "node-sass-chokidar": "0.0.3",
+    "postcss-discard-duplicates": "^4.0.0",
+    "query-string": "^5.0.1",
+    "react": "^16.2.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17",
+    "rmwc": "0.0.1-rc11"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive"
+  },
+  "proxy": {
+    "/search": {
+      "target": "http://localhost:3002"
+    }
   }
 }

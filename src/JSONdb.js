@@ -5,26 +5,36 @@ import lessonsData from './data/lesson_collatedv3_WIP.json';
 const titleScore = 10;
 const contentsScore = 2;
 
+
+
 export default class JSONdb {
 
-	static search(book, term, num) {
+	static search(book, query, num) {
 
-		console.log('inside search');
+		query = query.toLowerCase();
+		
+		let data = JSONdb.getJsonData(book);
 
-		term = term.toLowerCase();
+		JSONdb.assignScores(data, book, query);
+
+		JSONdb.sortByScore(data);
+
+		return data.slice(0, num); //return only fixed number of results
 		
-		let data = null;
-		
+
+	}
+
+	static getJsonData(book, query, num) {
 		switch(book) {
-			case 'dr': data = drData;
-						break;
-			case 'lessons': data = lessonsData;
-						break;
-			case 'jsr': data = jsrData;
-						break;
+			case 'dr': return drData;
+			case 'lessons': return lessonsData;
+			case 'jsr': return jsrData;
+			default: return null;
 		}
+	}
 
-		console.log(data.length);
+
+	static assignScores(data, book, query) {
 
 		for(let i=0;i<data.length;i++) {
 			
@@ -32,7 +42,7 @@ export default class JSONdb {
 
 			data[i].score = 0;
 
-			if(data[i].title.toLowerCase().includes(term)) {
+			if(data[i].title.toLowerCase().includes(query)) {
 				data[i].score += titleScore; //+10
 			}
 
@@ -40,7 +50,7 @@ export default class JSONdb {
 				//add score for tag match
 				for(let j=0;j<data[i].index.length;j++) {
 					for(let k=0;k<data[i].index[j].tags.length;k++) {
-						if(data[i].index[j].tags[k].toLowerCase().includes(term)) {
+						if(data[i].index[j].tags[k].toLowerCase().includes(query)) {
 							data[i].score += contentsScore; //+2
 							console.log("data[i].title");
 							console.log(data[i].title);
@@ -51,7 +61,7 @@ export default class JSONdb {
 			}
 			else {
 				for(let j=0;j<data[i].contents.length;j++) {
-					if(data[i].contents[j].title.toLowerCase().includes(term)) {
+					if(data[i].contents[j].title.toLowerCase().includes(query)) {
 						data[i].score += contentsScore; //+2
 					}
 				}
@@ -60,19 +70,7 @@ export default class JSONdb {
 			console.log(data[i].score);
 		}
 
-		JSONdb.sortByScore(data);
-
-		if(book === "lessons") {
-			console.log("lessons data: ");
-			console.log(data);
-		}
-		
-
-		return data.slice(0,num);
-		
-
 	}
-
 
 	static sortByScore(data) {
 	    let i, j, max_index;

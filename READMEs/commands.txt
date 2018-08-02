@@ -1,68 +1,6 @@
 Use these commands
 ==================
 
-start mongo
-
-In client directory
--------------------
-client directory contains react code. It runs on 3000
-
 npm run watch-css      -> For watching and building scss
 npm run start          -> To start the server
 
-
-In express directory (src_searchApp)
---------------------
-Express server simply returns json. It runs on 3002 and uses built react code.
-Example: http://localhost:3002/search?q=God
-
-PORT=3002 node bin/www      -> start express server (in express directory)
-								// Should be nodemon
-
-Running both servers together
------------------------------
-Run servers for backend and frontend separately
-
-https://daveceddia.com/create-react-app-express-backend/
-
-mongolab
-========
-
-username: aksheyjawa
-password: canbetold123
-^^For mlab login and database login
-
-
-To connect using the mongo shell:
-mongo ds259175.mlab.com:59175/ysearch -u <dbuser> -p <dbpassword>
-
-To connect using a driver via the standard MongoDB URI:
-mongodb://<dbuser>:<dbpassword>@ds259175.mlab.com:59175/ysearch
-
-mongoimport --jsonArray --db indexes --collection all --file lesson_collatedv3_WIP.json
-
-mongoimport -h ds259175.mlab.com:59175 -u aksheyjawa -p canbetold123  --jsonArray --db ysearch --collection all --file lesson_collatedv3_WIP.json
-
-
-Yarn (not being used)
-=====================
-
-
-yarn start
-  Starts the development server.
-
-yarn build
-  Bundles the app into static files for production.
-
-yarn test
-  Starts the test runner.
-
-yarn eject
-  Removes this tool and copies build dependencies, configuration files
-  and scripts into the app directory. If you do this, you can’t go back!
-
-We suggest that you begin by typing:
-  cd ysearchapp
-  yarn start
-
-Happy hacking!

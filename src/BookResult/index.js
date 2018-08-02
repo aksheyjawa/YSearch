@@ -30,8 +30,7 @@ export default class BookResult extends Component {
                 <ListGroupItem 
                   key={result.pageNum}
                   >
-                  <h1 className="list_heading">Chapter {result.chapterNum}: {Helpers.highlightTerm(result.title, this.props.query)} - Pg. {result.pageNum}</h1>
-                  <div className="score">{result.score}</div>
+                  <h1 className="list_heading">Chapter {result.chapterNum}: {Helpers.highlightTerm(result.title, this.props.query)} - Pg. {result.pageNum}   ({result.score})</h1>
                   { Helpers.isNotEmpty(result.contents) 
                     && result.contents.map((section, i) => 
                     {

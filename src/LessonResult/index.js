@@ -33,7 +33,7 @@ export default class LessonResult extends Component {
                 <ListGroupItem 
                   key={result.num}
                   >
-                  <h1 className="list_heading">Lesson {result.num}: {Helpers.highlightTerm(result.title, this.props.query)}</h1>
+                  <h1 className="list_heading">Lesson {result.num}: {Helpers.highlightTerm(result.title, this.props.query)}  ({result.score})</h1>
                   { Helpers.isNotEmpty(result.index) 
                     && result.index.map((indexItem, i) => 
                         indexItem.tags.map((tagItem, j) => 
