@@ -10,14 +10,15 @@ export default class SearchBox extends Component {
 
   constructor() {
     super();
-    console.log("Inside SearchBox constructor");
+    //console.log("Inside SearchBox constructor");
     //this.query = this.props.query;
   }
 
   render() {
 
     return(
-      <form method="get" action="/results" >
+      <form method="get" action="/results" className="search_form"  >
+        <a className="back_icon" href="/"></a>
         <input 
           className="search_box" 
           type="text" 

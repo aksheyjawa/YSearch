@@ -11,7 +11,7 @@ export default class LessonResult extends Component {
 
   constructor() {
     super();
-    console.log("Inside LessonResult constructor");
+    //console.log("Inside LessonResult constructor");
     //this.query = this.props.query;
     //JSONdb.searchDB('lessons', 'love');
   }
@@ -21,7 +21,11 @@ export default class LessonResult extends Component {
     let regex = new RegExp(Helpers.escapeString(this.props.query), "i");
     //console.log(lessonData);
     //JSONdb.searchTag('','');
+    console.log("this.props.data.length");
+    console.log(this.props.data);
+    if (this.props.data.length > 0)
     return(
+      
       <section className="pub_section is-lessons">
         <div className="pub_details">
           <img className="pub_title_pic" src={root + "/images/YSSlessons.jpg"} />
@@ -29,7 +33,8 @@ export default class LessonResult extends Component {
         <ListGroup>
         { Helpers.isNotEmpty(this.props.data) 
           && this.props.data.map(result =>
-            { return( result.num <= 182 &&
+            { if(result.score > 0) 
+              return( result.num <= 182 &&
                 <ListGroupItem 
                   key={result.num}
                   >
@@ -52,7 +57,15 @@ export default class LessonResult extends Component {
         }
         </ListGroup>
       </section>
+      
     );
+
+    else
+      return(
+          <section className="pub_section is-lessons">
+            <div>No matches found in lessons</div>
+          </section>
+          );
   }
 
 }

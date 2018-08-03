@@ -18,7 +18,7 @@ export default class Results extends Component {
   }
 
   componentDidMount() {
-    console.log("Inside Results componentDidMount");
+    //console.log("Inside Results componentDidMount");
     //console.log();
   }
 
@@ -26,7 +26,7 @@ export default class Results extends Component {
     let sectionedResults = {};
 
     allResults.forEach(function(section) {
-      console.log(section._id);
+      //console.log(section._id);
       sectionedResults[section._id] = section.matches;
     });
     //console.log(sectionedResults);
@@ -39,12 +39,16 @@ export default class Results extends Component {
     const q = params.get('q');
     this.query = q;
 
-    console.log(this.state.results);
+    //console.log(this.state.results);
     //<LessonResult data={this.state.results} query={this.query}/>;
     return (
 
-      <div className="main">
+      <div className="main results_page">
+
+        
         <SearchBox></SearchBox>
+          
+
 
         { this.resultsCount === 0 &&
           <div className="no_results">No results</div>
@@ -60,6 +64,7 @@ export default class Results extends Component {
 
         <div>
           <BookResult 
+            name="Divine Romance"
             data={JSONdb.search('dr', q, 10)} 
             query={this.query}
             title={`${Helpers.codeBookMapping['dr']}`}
@@ -70,6 +75,7 @@ export default class Results extends Component {
 
         <div>
           <BookResult 
+            name="Journey to Self-Realization"
             data={JSONdb.search('jsr', q, 10)} 
             query={this.query}
             title={`${Helpers.codeBookMapping['jsr']}`}

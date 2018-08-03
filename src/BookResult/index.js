@@ -11,11 +11,12 @@ export default class BookResult extends Component {
 
   constructor() {
     super();
-    console.log("Inside BookResults constructor");
+    //console.log("Inside BookResults constructor");
     //this.query = this.props.query;
   }
 
   render() {
+    if (this.props.data.length > 0)
     return (
       <section className="pub_section">
         <div className="pub_details">
@@ -50,6 +51,13 @@ export default class BookResult extends Component {
         </ListGroup>
       </section>
     );
+    else
+      return(
+          <section className="pub_section">
+            <div>No matches found in "{this.props.name}"</div>
+          </section>
+          );
+
   }
 
 }

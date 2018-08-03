@@ -19,8 +19,22 @@ export default class JSONdb {
 
 		JSONdb.sortByScore(data);
 
+		data = JSONdb.removeUnmatched(data); //remove those with score 0
+
 		return data.slice(0, num); //return only fixed number of results
 		
+
+	}
+
+	static removeUnmatched(data) {
+		for(let i=0;i<data.length;i++) {
+			if(data[i].score === 0) {
+				data = data.slice(0, i);
+				console.log("data");
+				console.log(data);
+				return data;
+			}
+		}
 
 	}
 
@@ -38,7 +52,7 @@ export default class JSONdb {
 
 		for(let i=0;i<data.length;i++) {
 			
-			console.log(data[i]);
+			//console.log(data[i]);
 
 			data[i].score = 0;
 
@@ -52,9 +66,9 @@ export default class JSONdb {
 					for(let k=0;k<data[i].index[j].tags.length;k++) {
 						if(data[i].index[j].tags[k].toLowerCase().includes(query)) {
 							data[i].score += contentsScore; //+2
-							console.log("data[i].title");
-							console.log(data[i].title);
-							console.log(data[i].score);
+							//console.log("data[i].title");
+							//console.log(data[i].title);
+							//console.log(data[i].score);
 						}
 					}
 				}
@@ -67,7 +81,7 @@ export default class JSONdb {
 				}
 			}
 			
-			console.log(data[i].score);
+			//console.log(data[i].score);
 		}
 
 	}
@@ -90,7 +104,7 @@ export default class JSONdb {
 	        data[max_index] = c;
 	    }
 
-	    console.log(data);
+	    //console.log(data);
 	}
 
 }

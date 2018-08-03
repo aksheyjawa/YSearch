@@ -1,14 +1,15 @@
 Top:
 ====
-Deply on netlify/Github pages
+Deploy on netlify/Github pages
 Remove contents from lessons json
 Cleanup the index of lessons
-MEQ, DR
-Home button
-
+Test multiple word search
+Collate multiple tags for a page to one
+when no results in a particular category, do not show that section
 
 Later:
 ======
+MEQ
 Show Load more feature
 Make it a PWA
 Rank the documents instead of string matching only

@@ -8,7 +8,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = { input: '' };
-    console.log("Inside Home constructor");
+    //console.log("Inside Home constructor");
   }
 
   render() {
